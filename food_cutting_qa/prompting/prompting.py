@@ -22,7 +22,7 @@ def read_questions() -> List[str]:
 
 def prompt_models(questions: List[str], models: List[Prompter], dbs: List[str], context_amount=3):
     system_msg = "Please answer the following question as briefly and concise as you can, using the provided context as help."
-    result_path = os.path.join(os.path.dirname(__file__), "..", "results")
+    result_path = os.path.join(os.path.dirname(__file__), "..", "model_answers")
     for prompter in models:
         for db in dbs:
             prompt_res = []
