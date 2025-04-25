@@ -179,4 +179,3 @@ cython_debug/
 
 # Food Cutting evaluation files
 /food_cutting_qa/prompting/credentials.json
-/food_cutting_qa/qa.csv
