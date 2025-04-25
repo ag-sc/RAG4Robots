@@ -1,3 +1,9 @@
 langchain~=0.2.17
 faiss-cpu~=1.8.0.post1
 sentence-transformers~=3.2.1
+torch~=2.4.1
+transformers~=4.46.3
+openai~=1.59.6
+numpy~=1.24.4
+accelerate>=0.26.0
+bitsandbytes~=0.45.0
