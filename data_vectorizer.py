@@ -1,5 +1,5 @@
 import json
-from os import path
+import os
 from typing import List
 
 import faiss
@@ -21,20 +21,20 @@ def convert_texts_to_vector(texts: List[str]):
 
 
 def save_vector_db_and_chunks(chunks: List[str], index, file: str):
-    file_v = path.join(base_path, f'{file}{file_end}')
-    file_c = path.join(base_path, f'{file}_chunks.json')
+    file_v = os.path.join(base_path, f'{file}{file_end}')
+    file_c = os.path.join(base_path, f'{file}_chunks.json')
     faiss.write_index(index, file_v)
     with open(file_c, 'w+') as f:
         f.write(json.dumps(chunks))
 
 
 def load_vector_db(file: str):
-    file_p = path.join(base_path, f'{file}{file_end}')
+    file_p = os.path.join(os.path.dirname(__file__), base_path, f'{file}{file_end}')
     return faiss.read_index(file_p)
 
 
 def load_chunks(file: str) -> List[str]:
-    file_c = path.join(base_path, f'{file}_chunks.json')
+    file_c = os.path.join(os.path.dirname(__file__), base_path, f'{file}_chunks.json')
     with open(file_c, "r") as f:
         chunks = json.load(f)
     return chunks

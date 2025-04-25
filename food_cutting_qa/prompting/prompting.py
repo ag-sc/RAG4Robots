@@ -30,11 +30,11 @@ def prompt_models(questions: List[str], models: List[Prompter], dbs: List[str], 
                 context = get_context_chunks(db, q, context_amount)
                 user_msg = f'Question: {q}\nContext: {context}\nAnswer:'
                 res = prompter.prompt_model(system_msg, user_msg)
-                prompt_res.append((q, context, res))
+                prompt_res.append((q, res, context))
             with open(f"{result_path}/{prompter.model_name.lower()}_{db}.csv", "w", newline="",
                       encoding="utf-8") as file:
                 writer = csv.writer(file)
-                writer.writerow(["question", "context", "model_answer"])
+                writer.writerow(["question", "model_answer", "context"])
                 writer.writerows(prompt_res)
 
 
