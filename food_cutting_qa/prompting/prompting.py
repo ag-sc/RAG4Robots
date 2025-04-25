@@ -2,10 +2,9 @@ import csv
 import os
 from typing import List
 
-from data_vectorizer import get_context_chunks
+from ...data_vectorizer import get_context_chunks
 from food_cutting_qa.prompting.gemma_prompter import GemmaPrompter
 from food_cutting_qa.prompting.llama_prompter import LlamaPrompter
-from food_cutting_qa.prompting.openai_prompter import OpenAIPrompter
 from food_cutting_qa.prompting.prompter import Prompter
 
 
@@ -39,7 +38,7 @@ def prompt_models(questions: List[str], models: List[Prompter], dbs: List[str], 
 
 
 if __name__ == "__main__":
-    prompters = [OpenAIPrompter(), LlamaPrompter(), GemmaPrompter()]
+    prompters = [LlamaPrompter(), GemmaPrompter()]
     databases = ['recipes', 'wikihow', 'tutorials']
     questions = read_questions()
     prompt_models(questions, prompters, databases)
