@@ -46,6 +46,7 @@ def evaluate_models(bin_res=True):
                 m_ans = get_model_answer(fname, quest)
                 user_msg = f"\nQuestion: {quest}\nGround Truth: {gt_ans}\nLLM Answer: {m_ans}\nResult:"
                 score = evaluator_llm.prompt_model(sys_msg, user_msg)
+                score = score.replace("\n", " ")
                 scores.append((quest, gt_ans, m_ans, score))
         path = Path(fname)
         with open(f"{result_path}/{path.stem}_{file_n}.csv", "w", newline="", encoding="utf-8") as file:
