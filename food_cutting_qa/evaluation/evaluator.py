@@ -3,6 +3,8 @@ import glob
 import os
 from pathlib import Path
 
+from tqdm import tqdm
+
 from food_cutting_qa.prompting.llama_prompter import LlamaPrompter
 
 quest_path = os.path.join(os.path.dirname(__file__), "..", "qa.csv")
@@ -33,7 +35,7 @@ def evaluate_models(bin_res=True):
         sys_msg = sys_msg_scoring
         file_n = "scoring"
 
-    for fname in glob.glob(f"{answer_path}/*.csv"):
+    for fname in tqdm(glob.glob(f"{answer_path}/*.csv"), "Evaluating model results"):
         scores = []
         with open(quest_path, "r", encoding="utf-8") as file:
             reader = csv.reader(file)

@@ -2,10 +2,12 @@ import csv
 import os
 from typing import List
 
-from ...data_vectorizer import get_context_chunks
+from tqdm import tqdm
+
 from food_cutting_qa.prompting.gemma_prompter import GemmaPrompter
 from food_cutting_qa.prompting.llama_prompter import LlamaPrompter
 from food_cutting_qa.prompting.prompter import Prompter
+from ...data_vectorizer import get_context_chunks
 
 
 def read_questions() -> List[str]:
@@ -22,10 +24,10 @@ def read_questions() -> List[str]:
 def prompt_models(questions: List[str], models: List[Prompter], dbs: List[str], context_amount=3):
     system_msg = "Please answer the following question as briefly and concise as you can, using the provided context as help."
     result_path = os.path.join(os.path.dirname(__file__), "..", "model_answers")
-    for prompter in models:
-        for db in dbs:
+    for prompter in tqdm(models, "Prompting all models..."):
+        for db in tqdm(dbs, "...using all databases..."):
             prompt_res = []
-            for q in questions:
+            for q in tqdm(questions, "...for all questions"):
                 context = get_context_chunks(db, q, context_amount)
                 user_msg = f'Question: {q}\nContext: {context}\nAnswer:'
                 res = prompter.prompt_model(system_msg, user_msg)
