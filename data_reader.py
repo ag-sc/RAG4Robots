@@ -5,6 +5,7 @@ import tarfile
 from typing import List
 
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+from tqdm import tqdm
 
 
 def read_recipe_data(max_amount=-1) -> List[str]:
@@ -12,7 +13,7 @@ def read_recipe_data(max_amount=-1) -> List[str]:
     json_files = [pos_json for pos_json in os.listdir(folder) if pos_json.endswith('.json')]
     recipes = []
     # load all recipes
-    for js in json_files:
+    for js in tqdm(json_files, 'Reading recipe files'):
         with open(os.path.join(folder, js)) as json_file:
             json_text = json.load(json_file)
             for rec in json_text:
@@ -32,7 +33,7 @@ def read_wikihow_articles(max_amount=-1) -> List[str]:
     articles = []
     # load all articles
     with tarfile.open(archive, 'r:gz') as tar:
-        for member in tar.getmembers():
+        for member in tqdm(tar.getmembers(), 'Reading WikiHow articles'):
             if member.isfile() and member.name.endswith(".json"):
                 file = tar.extractfile(member)
                 if file:
@@ -53,7 +54,7 @@ def read_wikihow_articles(max_amount=-1) -> List[str]:
 def read_tutorial_videos() -> List[str]:
     folder = "data/cut_tutorials/"
     documents = []
-    for filename in os.listdir(folder):
+    for filename in tqdm(os.listdir(folder), 'Reading tutorial video transcripts'):
         if filename.endswith(".txt"):
             with open(os.path.join(folder, filename), "r", encoding="utf-8") as file:
                 documents.append(file.read())
@@ -67,5 +68,5 @@ def chunk_text_documents(texts: List[str], chunk_size=500, chunk_overlap=50) -> 
         length_function=len
     )
     chunks = chunker.create_documents(texts)
-    chunk_texts = [doc.page_content for doc in chunks]
+    chunk_texts = [doc.page_content for doc in tqdm(chunks, 'Creating chunks')]
     return chunk_texts
