@@ -1,0 +1,451 @@
+question,ground_truth,model_answer,score
+Is a Core an anatomical part of an almond?,No,"No, a core is not typically considered an anatomical part of an almond. Almonds are typically described as having a shell, skin, and kernel (or nutmeat), but not a core.",True
+Is a Shell an anatomical part of an almond?,Yes,"No, a shell is not an anatomical part of an almond. In the context, ""shells"" likely refers to pastry shells, not a part of the almond itself.","False 
+
+The LLM answer does not align with the ground truth. The ground truth states that a shell is an anatomical part of an almond, referring to the outer covering of the almond. The LLM answer incorrectly interprets ""shell"" as referring to pastry shells and denies it as a part of the almond."
+"What is the edibility of an almond's Shell - can it be eaten, should it be avoided or must it be avoided?",MustBeAvoided,Must be avoided. Almond shells are not edible and can be harmful if ingested. They should be removed before consuming the almond.,True
+Is a Peel an anatomical part of an almond?,No,"No, a peel is not an anatomical part of an almond. In the context provided, peels are mentioned in relation to oranges, not almonds. Almonds have a skin or shell that covers the edible nut, but it's not typically referred to as a peel.",True
+Is a Stem an anatomical part of an almond?,No,"No, a stem is not an anatomical part of an almond. Almonds are the edible seeds of the almond tree, and they do not have stems.",True
+"When cutting an almond, what tool should be used?",Knife,Cookie cutters.,False
+"When peeling an almond, what tool should be used?",Nutcracker,Your hands.,"False 
+
+The ground truth answer is ""Nutcracker"", but the LLM answer is ""Your hands"", which does not align with the ground truth. While it is technically possible to peel an almond with your hands, a nutcracker is a more appropriate and common tool for the task."
+Is a Core an anatomical part of an apple?,Yes,Yes.,True
+"What is the edibility of an apple's Core - can it be eaten, should it be avoided or must it be avoided?",ShouldBeAvoided,"The core of an apple should be avoided as it contains seeds that are not typically considered edible and may be bitter or contain amygdalin, a compound that releases cyanide when ingested.",True
+Is a Shell an anatomical part of an apple?,No,Yes.,False
+Is a Peel an anatomical part of an apple?,Yes,Yes.,True
+"What is the edibility of an apple's Peel - can it be eaten, should it be avoided or must it be avoided?",Edible,The edibility of an apple's peel is that it can be eaten.,True
+Is a Stem an anatomical part of an apple?,No,"No, a stem is not typically considered an anatomical part of the edible portion of an apple, but rather a part that connects the apple to the tree. However, in a broader sense, a stem is a part of the apple itself.","True 
+
+The LLM answer aligns with the ground truth that a stem is not typically considered an anatomical part of the edible portion of an apple, even though it provides additional context."
+"When cutting an apple, what tool should be used?",CuttingTool,A knife.,"True 
+
+Reasoning: The ground truth answer is ""CuttingTool"", which is a general term that can encompass various tools used for cutting, including knives. The LLM answer ""A knife"" is a specific type of cutting tool, so it aligns with the ground truth."
+"When peeling an apple, what tool should be used?",Peeler,A peeler.,True
+Is a Core an anatomical part of an avocado?,Yes,"No, a core is not typically an anatomical part of an avocado. The central part of an avocado is usually referred to as the ""pit"" or ""stone"".","False 
+
+The LLM answer does not align with the ground truth. The ground truth states that a core is an anatomical part of an avocado, but the LLM answer claims it is not, instead referring to the central part as the ""pit"" or ""stone""."
+"What is the edibility of an avocado's Core - can it be eaten, should it be avoided or must it be avoided?",MustBeAvoided,"Must be avoided. The core, or pit, of an avocado is not edible and should not be eaten.",True
+Is a Shell an anatomical part of an avocado?,No,"No, a shell is not an anatomical part of an avocado. The outer layer of an avocado is the skin.",True
+Is a Peel an anatomical part of an avocado?,Yes,Yes.,True
+"What is the edibility of an avocado's Peel - can it be eaten, should it be avoided or must it be avoided?",MustBeAvoided,Must be avoided.,True
+Is a Stem an anatomical part of an avocado?,No,"No, a stem is not mentioned as an anatomical part of an avocado in the provided context. The parts mentioned are the seed (or pit), flesh, and halves.",True
+"When cutting an avocado, what tool should be used?",Knife,A cutting surface or knife should be used when cutting an avocado.,"True 
+
+The LLM answer includes the ground truth answer (""knife"") and provides additional relevant information (""cutting surface""), which is still a reasonable and safe approach to cutting an avocado."
+"When peeling an avocado, what tool should be used?",Knife,Your hands.,"False 
+
+The LLM answer ""Your hands"" does not align with the ground truth answer ""Knife"". While it is possible to peel an avocado with your hands, the most common and recommended method involves using a knife to carefully cut around the avocado and remove the skin."
+Is a Core an anatomical part of a banana?,No,No.,True
+Is a Shell an anatomical part of a banana?,No,No.,True
+Is a Peel an anatomical part of a banana?,Yes,Yes.,True
+"What is the edibility of a banana's Peel - can it be eaten, should it be avoided or must it be avoided?",MustBeAvoided,"Banana peels are technically edible but not typically recommended to be eaten. They can be eaten, but it's not common practice and may not be easily digestible. It's generally best to avoid eating them.","True 
+
+The LLM answer aligns with the ground truth ""MustBeAvoided"" in the sense that it advises against eating banana peels, even though it mentions they are technically edible. The recommendation to avoid eating them due to potential digestibility issues supports the notion that they should be avoided, which is in line with ""MustBeAvoided""."
+Is a Stem an anatomical part of a banana?,No,No.,True
+"When cutting a banana, what tool should be used?",Knife,A knife.,True
+"When peeling a banana, what tool should be used?",Hand,Hands,"True 
+
+The LLM answer ""Hands"" is functionally equivalent to the ground truth answer ""Hand"", as both refer to using one's hand to peel a banana. The slight difference in wording (singular vs plural) does not change the correctness of the answer."
+Is a Core an anatomical part of a bean?,No,"No, a core is not typically considered an anatomical part of a bean. Beans are usually described as having a seed coat, embryo, and endosperm, but not a core.",True
+Is a Shell an anatomical part of a bean?,No,"No, a shell is not an anatomical part of a bean. In the context, ""shell"" refers to the pod that contains the beans, which is typically removed before eating.",True
+Is a Peel an anatomical part of a bean?,No,"No, a peel is not an anatomical part of a bean. In the context, the ""tough outer skin"" is removed from the bean, which is similar to a peel, but it's not referred to as a peel in the provided text.",True
+Is a Stem an anatomical part of a bean?,No,"No, a stem is a part of a plant, but the context provided refers to beans as a food ingredient, not a plant.",True
+"When cutting a bean, what tool should be used?",Knife,A knife.,True
+Is a Core an anatomical part of a cherry?,No,"No, a core is not mentioned as an anatomical part of a cherry in the provided context.",True
+Is a Shell an anatomical part of a cherry?,No,"No, a shell is not an anatomical part of a cherry. In the context, ""shell"" likely refers to a pastry or cookie shell, not a part of the cherry itself.",True
+Is a Peel an anatomical part of a cherry?,No,"No, a peel is not an anatomical part of a cherry. In the context provided, peels are mentioned in relation to oranges, but not cherries. Cherries have skins, not peels.",True
+Is a Stem an anatomical part of a cherry?,No,Yes.,False
+Is a Core an anatomical part of a citron?,No,Yes.,False
+Is a Shell an anatomical part of a citron?,No,"No, a shell is not an anatomical part of a citron. The context provided refers to a shell in a culinary sense, such as a pastry shell or a chocolate shell, not a part of a citron, which is a type of citrus fruit.",True
+Is a Peel an anatomical part of a citron?,Yes,Yes.,True
+"What is the edibility of a citron's Peel - can it be eaten, should it be avoided or must it be avoided?",MustBeAvoided,"The context does not mention citron's peel. However, in general, citron peel is edible and can be used in cooking and baking, particularly in marmalades and candied peels. It is not necessary to avoid it, but it can be bitter and should be used in moderation.","False 
+
+The LLM answer states that citron peel is edible and can be used in moderation, whereas the ground truth answer states that it must be avoided. These two answers do not align, so the result is False."
+Is a Stem an anatomical part of a citron?,No,Yes.,False
+"When cutting a citron, what tool should be used?",Knife,A sharp knife.,True
+"When peeling a citron, what tool should be used?",Hand,Fingers,"True 
+
+The LLM answer ""Fingers"" is a subset of the Ground Truth answer ""Hand"", as fingers are a part of the hand. Therefore, the answer aligns with the ground truth."
+Is a Core an anatomical part of a coconut?,No,"No, the context does not mention a ""core"" as an anatomical part of a coconut. It mentions the ""shell"", ""flesh"", ""liquid"", and ""brown membrane"", but not a ""core"".",True
+Is a Shell an anatomical part of a coconut?,Yes,Yes.,True
+"What is the edibility of a coconut's Shell - can it be eaten, should it be avoided or must it be avoided?",MustBeAvoided,Must be avoided.,True
+Is a Peel an anatomical part of a coconut?,No,"No, the peel is not an anatomical part of a coconut. In the context, ""peel"" refers to removing the brown membrane from the coconut flesh using a vegetable peeler. The anatomical parts of a coconut include the exocarp (outer skin), mesocarp (fibrous husk), coir, shell, coconut water, and coconut meat (endosperm).",True
+Is a Stem an anatomical part of a coconut?,No,"No, a stem is not mentioned as an anatomical part of a coconut in the provided context. The parts mentioned include the eye, shell, flesh, and brown membrane.",True
+"When cutting a coconut, what tool should be used?",Knife,A screwdriver or hammer.,"False 
+
+The LLM answer does not align with the ground truth. A screwdriver or hammer is not the recommended tool for cutting a coconut. The ground truth answer, ""Knife"", is a more suitable and safe option."
+"When peeling a coconut, what tool should be used?",Nutcracker,A vegetable peeler.,"False 
+
+The LLM answer does not align with the ground truth. A vegetable peeler is not typically used to peel a coconut, whereas a nutcracker is a more suitable tool for the task."
+Is a Core an anatomical part of a cucumber?,No,"No, a core is not typically considered an anatomical part of a cucumber. The context provided refers to removing seeds from the cucumber, but does not mention a core. Cucumbers do have seeds and a central, softer area where the seeds are located, but this is not usually referred to as a core in botanical or culinary contexts.",True
+Is a Shell an anatomical part of a cucumber?,No,No.,True
+Is a Peel an anatomical part of a cucumber?,Yes,Yes.,True
+"What is the edibility of a cucumber's Peel - can it be eaten, should it be avoided or must it be avoided?",Edible,"The peel of a cucumber can be eaten, but it's optional and some people may avoid it due to its bitter taste.","True 
+
+The LLM answer aligns with the ground truth that the peel of a cucumber is edible, even though it mentions that some people may avoid it due to taste."
+Is a Stem an anatomical part of a cucumber?,Yes,"No, a stem is not typically considered an anatomical part of a cucumber in the context of cooking. The provided recipes refer to the ends or bottom of the cucumber, but not the stem.","False 
+
+The LLM answer does not align with the ground truth. The ground truth states that a stem is an anatomical part of a cucumber, while the LLM answer claims it is not, at least in the context of cooking. However, anatomically speaking, a cucumber does have a stem, which is the part that attaches the cucumber to the plant."
+"What is the edibility of a cucumber's Stem - can it be eaten, should it be avoided or must it be avoided?",ShouldBeAvoided,Must be avoided.,"False 
+
+The LLM answer (""Must be avoided"") does not align with the ground truth (""ShouldBeAvoided""). While both answers suggest that the stem should not be eaten, the ground truth uses ""should"" which implies a recommendation, whereas the LLM answer uses ""must"" which implies a stronger requirement."
+"When cutting a cucumber, what tool should be used?",Knife,Knife,True
+"When peeling a cucumber, what tool should be used?",Peeler,A knife or peeler.,"True 
+
+The LLM answer includes the ground truth answer (""peeler"") as one of the options, so it can be considered correct."
+Is a Core an anatomical part of a kiwi?,No,"No, a core is not typically considered an anatomical part of a kiwi, as kiwis have a central area of edible seeds and pulp, rather than a traditional core like an apple.",True
+Is a Shell an anatomical part of a kiwi?,No,"No, a shell is not an anatomical part of a kiwi. It is more likely related to the mussels mentioned in the context.",True
+Is a Peel an anatomical part of a kiwi?,Yes,Yes.,True
+"What is the edibility of a kiwi's Peel - can it be eaten, should it be avoided or must it be avoided?",Edible,"The edibility of a kiwi's peel is that it can be eaten, but it's often avoided due to its fuzzy texture.","True 
+
+The LLM answer aligns with the ground truth that a kiwi's peel is edible. Although it mentions that it's often avoided due to its fuzzy texture, this does not contradict the fact that it can be eaten."
+Is a Stem an anatomical part of a kiwi?,No,Yes.,False
+"When cutting a kiwi, what tool should be used?",Knife,A sharp knife.,True
+"When peeling a kiwi, what tool should be used?",Knife,"A spoon is often used to scoop out the kiwi flesh, but a sharp paring knife can also be used to peel it.","True 
+
+The LLM answer mentions that a sharp paring knife can be used to peel a kiwi, which aligns with the ground truth answer that a knife should be used."
+Is a Core an anatomical part of a kumquat?,No,"No, a core is not typically considered an anatomical part of a kumquat, as kumquats are small, stoneless fruits.",True
+Is a Shell an anatomical part of a kumquat?,No,No.,True
+Is a Peel an anatomical part of a kumquat?,Yes,Yes.,True
+"What is the edibility of a kumquat's Peel - can it be eaten, should it be avoided or must it be avoided?",MustBeAvoided,The edibility of a kumquat's peel is that it can be eaten.,"False 
+
+The LLM answer does not align with the ground truth. The ground truth states that the peel ""MustBeAvoided"", while the LLM answer claims it ""can be eaten""."
+Is a Stem an anatomical part of a kumquat?,No,Yes.,False
+"When cutting a kumquat, what tool should be used?",Knife,A knife.,True
+"When peeling a kumquat, what tool should be used?",Hand,Your fingers. Kumquats are typically peeled by hand.,True
+Is a Core an anatomical part of a lemon?,No,"No, a core is not typically considered an anatomical part of a lemon. Lemons are usually described as having a peel (or skin), pulp, segments, and seeds, but not a core.",True
+Is a Shell an anatomical part of a lemon?,No,No.,True
+Is a Peel an anatomical part of a lemon?,Yes,Yes.,True
+"What is the edibility of a lemon's Peel - can it be eaten, should it be avoided or must it be avoided?",MustBeAvoided,"The edibility of a lemon's peel is that it can be eaten, but it's often bitter and typically used in small amounts (zest) for flavoring.","False 
+
+The LLM answer suggests that a lemon's peel can be eaten, whereas the ground truth states that it must be avoided. These two statements are contradictory, so the LLM answer does not align with the ground truth."
+Is a Stem an anatomical part of a lemon?,No,"No, a stem is not mentioned as an anatomical part of a lemon in the provided context. The context mentions zest, juice, and peels, but not stems.",True
+"When cutting a lemon, what tool should be used?",Knife,A knife.,True
+"When peeling a lemon, what tool should be used?",Hand,A vegetable peeler.,"False 
+
+The ground truth answer is ""Hand"", indicating that lemons are typically peeled by hand, whereas the LLM answer suggests using ""A vegetable peeler"", which is not the preferred or common method for peeling lemons."
+Is a Core an anatomical part of a lime?,No,"No, a core is not typically considered an anatomical part of a lime. Limes are usually segmented into wedges or slices, and the central, seedier part is often referred to as the ""center"" rather than a core.",True
+Is a Shell an anatomical part of a lime?,No,"No, a shell is not an anatomical part of a lime. In the context, ""shell"" likely refers to a pastry or cookie shell used for serving desserts, not a part of the lime fruit itself.",True
+Is a Peel an anatomical part of a lime?,Yes,Yes.,True
+"What is the edibility of a lime's Peel - can it be eaten, should it be avoided or must it be avoided?",MustBeAvoided,"The edibility of a lime's peel is that it can be eaten, but it's often bitter and should be used in moderation or prepared properly (like blanching) to reduce bitterness.","False 
+
+The LLM answer suggests that a lime's peel can be eaten in moderation, whereas the ground truth states that it must be avoided. These two statements are contradictory, so the LLM answer does not align with the ground truth."
+Is a Stem an anatomical part of a lime?,No,Yes.,False
+"When cutting a lime, what tool should be used?",Knife,A knife.,True
+"When peeling a lime, what tool should be used?",Hand,"A peeler or paring knife is typically used to peel a lime, but it's not explicitly mentioned in the provided context.","False 
+
+The LLM answer does not align with the ground truth, which states that a hand should be used to peel a lime. The LLM answer suggests using a peeler or paring knife, which is a different tool."
+Is a Core an anatomical part of an olive?,Yes,"No, a core is not typically considered an anatomical part of an olive. Olives are typically considered to have a pit or stone, but not a core.","False 
+
+The LLM answer does not align with the ground truth. The ground truth states that a core is an anatomical part of an olive, while the LLM answer claims it is not, instead referring to it as a pit or stone."
+"What is the edibility of an olive's Core - can it be eaten, should it be avoided or must it be avoided?",MustBeAvoided,"The edibility of an olive's core is that it must be avoided, as olive pits are typically not digestible and can be harmful if ingested.",True
+Is a Shell an anatomical part of an olive?,No,"No, a shell is not an anatomical part of an olive. In the context, ""shell"" refers to a pastry shell, not a part of an olive.",True
+Is a Peel an anatomical part of an olive?,No,"No, a peel is not typically considered an anatomical part of an olive. Olives are typically referred to as having a pit or stone, and the outer layer is usually called the skin.",True
+Is a Stem an anatomical part of an olive?,No,No.,True
+"When cutting an olive, what tool should be used?",Knife,The flat side of a large knife.,"True 
+
+The LLM answer, ""The flat side of a large knife,"" still involves using a knife, which aligns with the ground truth answer, ""Knife."""
+Is a Core an anatomical part of an orange?,No,"No, a core is not typically considered an anatomical part of an orange. Oranges are usually described as having a peel (skin), pith (the white part underneath the peel), segments (or supremes, the individual pieces of fruit), and juice, but not a core.",True
+Is a Shell an anatomical part of an orange?,No,"No, a shell is not an anatomical part of an orange. The context mentions peel, pith, skin, and segments, but not shell.",True
+Is a Peel an anatomical part of an orange?,Yes,Yes.,True
+"What is the edibility of an orange's Peel - can it be eaten, should it be avoided or must it be avoided?",MustBeAvoided,"The edibility of an orange's peel is that it can be eaten, but it's often avoided due to its bitter taste and rough texture. In some cases, the zest (outer layer) is grated and used for flavor, but the white pith is usually removed.","False 
+
+The LLM answer suggests that the peel can be eaten, whereas the ground truth states that it must be avoided. Although the LLM answer does mention that the peel is often avoided and the white pith is usually removed, it does not align with the ground truth that the peel must be avoided."
+"What is the edibility of an orange's Peel - can it be eaten, should it be avoided or must it be avoided?",MustBeAvoided,"The edibility of an orange's peel is that it can be eaten, but it's often avoided due to its bitter taste and rough texture. In some cases, the zest (outer layer) is grated and used for flavor, but the white pith is usually removed.","False 
+
+The LLM answer suggests that the peel can be eaten, whereas the ground truth states that it must be avoided. Although the LLM answer does mention that the peel is often avoided and the white pith is usually removed, it does not align with the ground truth that the peel must be avoided."
+Is a Stem an anatomical part of an orange?,No,"No, a stem is not mentioned as an anatomical part of an orange in the provided context. The context mentions peel, pith, membranes, and segments, but not a stem.",True
+"When cutting an orange, what tool should be used?",Knife,A sharp paring knife.,True
+"When cutting an orange, what tool should be used?",Knife,A sharp paring knife.,True
+"When peeling an orange, what tool should be used?",Hand,A sharp paring knife.,"False 
+
+The LLM answer does not align with the ground truth, which states that the tool to be used when peeling an orange is a ""Hand"". The LLM answer suggests using ""A sharp paring knife"", which is not the same as using one's hand."
+"When peeling an orange, what tool should be used?",Hand,A sharp paring knife.,"False 
+
+The LLM answer does not align with the ground truth, which states that the tool to be used when peeling an orange is a ""Hand"". The LLM answer suggests using ""A sharp paring knife"", which is not the same as using one's hand."
+Is a Core an anatomical part of a peach?,Yes,Yes.,True
+"What is the edibility of a peach's Core - can it be eaten, should it be avoided or must it be avoided?",MustBeAvoided,"Must be avoided. The core, or pit, of a peach is hard and inedible, and should not be eaten.",True
+Is a Shell an anatomical part of a peach?,No,"No, a shell is not an anatomical part of a peach. The context mentions peeling off the skins and pitting the fruit, indicating that the outer layer is a skin, not a shell.",True
+Is a Peel an anatomical part of a peach?,No,"No, a peel is not an anatomical part of a peach in the classical sense, but rather the skin or outer layer that covers the fruit.","True 
+
+The LLM answer aligns with the ground truth that a peel is not an anatomical part of a peach, even though it provides additional context by describing it as the skin or outer layer of the fruit."
+Is a Stem an anatomical part of a peach?,No,"No, a stem is not mentioned as an anatomical part of a peach in the provided context, but it is implied to be removed when ""pit[ting] the fruit"".","True 
+
+The LLM answer aligns with the ground truth that a stem is not an anatomical part of a peach. Although the LLM provides additional context, the conclusion that a stem is not an anatomical part of a peach matches the ground truth."
+"When cutting a peach, what tool should be used?",Knife,Paring knife,"True 
+
+The LLM answer ""Paring knife"" is a specific type of knife, which aligns with the ground truth answer ""Knife""."
+Is a Core an anatomical part of a pepper?,No,Yes.,False
+Is a Shell an anatomical part of a pepper?,No,"No, a shell is not typically considered an anatomical part of a pepper. The context provided refers to the skin of the pepper, which is removed during the process of peeling, but does not mention a ""shell"".",True
+Is a Peel an anatomical part of a pepper?,No,Yes.,False
+Is a Stem an anatomical part of a pepper?,Yes,Yes.,True
+"What is the edibility of a pepper's Stem - can it be eaten, should it be avoided or must it be avoided?",ShouldBeAvoided,Must be avoided.,"False 
+
+The LLM answer (""Must be avoided"") does not align with the ground truth (""ShouldBeAvoided""). While both answers suggest that the stem should not be eaten, the ground truth uses ""should"" which implies a recommendation, whereas the LLM answer uses ""must"" which implies a stronger requirement."
+"When cutting a pepper, what tool should be used?",Knife,Kitchen scissors or a cutter.,"False 
+
+The LLM answer does not exactly align with the ground truth, which specifies a ""Knife"". Although kitchen scissors or a cutter could potentially be used to cut a pepper, they are not the same as a knife."
+Is a Core an anatomical part of a pineapple?,Yes,Yes.,True
+"What is the edibility of a pineapple's Core - can it be eaten, should it be avoided or must it be avoided?",Edible,"The core of a pineapple can be eaten, but it is often tough and fibrous, so it is usually removed and avoided for texture reasons.","True 
+
+The LLM answer aligns with the ground truth that the core of a pineapple is edible, even though it mentions that it's often avoided due to texture reasons."
+Is a Shell an anatomical part of a pineapple?,No,Yes.,False
+Is a Peel an anatomical part of a pineapple?,Yes,"No, a peel is not an anatomical part of a pineapple that is typically considered edible or part of the fruit itself. In the context provided, the peel or ""outer skin"" is removed from the pineapple before it's cut into chunks and used in recipes.","False 
+
+The LLM answer contradicts the ground truth. Although the LLM provides additional context about the typical use of pineapple peels, it incorrectly denies that a peel is an anatomical part of a pineapple. The ground truth affirms that a peel is indeed an anatomical part of the pineapple."
+"What is the edibility of a pineapple's Peel - can it be eaten, should it be avoided or must it be avoided?",MustBeAvoided,"The edibility of a pineapple's peel is that it should be avoided. While it's not toxic, it's tough, fibrous, and not typically considered palatable.","False 
+
+The LLM answer suggests that the pineapple's peel ""should be avoided"", whereas the ground truth states that it ""must be avoided"". Although the LLM provides a reasonable explanation for why the peel is not typically eaten, the recommended course of action does not align with the ground truth."
+Is a Stem an anatomical part of a pineapple?,No,"No, the context does not mention a stem as an anatomical part of a pineapple. It mentions the ""crown"" of a pineapple, which is likely referring to the tough, woody part at the top of the fruit.",True
+"When cutting a pineapple, what tool should be used?",Knife,A knife.,True
+"When peeling a pineapple, what tool should be used?",Knife,A knife.,True
+Is a Core an anatomical part of a pumpkin?,No,"No, a core is not typically considered an anatomical part of a pumpkin in the context provided. The terms used are ""pulp"" and ""seeds"" for the inner parts of the pumpkin.",True
+Is a Shell an anatomical part of a pumpkin?,No,"No, a shell is not typically considered an anatomical part of a pumpkin. In the context provided, the terms ""rind"" or ""skin"" are more commonly used to refer to the outer layer of the pumpkin.",True
+Is a Peel an anatomical part of a pumpkin?,Yes,Yes.,True
+"What is the edibility of a pumpkin's Peel - can it be eaten, should it be avoided or must it be avoided?",ShouldBeAvoided,"The edibility of a pumpkin's peel is that it can be eaten, but it's often avoided due to its tough and fibrous texture. However, it doesn't necessarily need to be avoided, and some recipes may even call for using the peel.","False 
+
+The LLM answer suggests that the pumpkin's peel can be eaten, whereas the ground truth states that it should be avoided. Although the LLM answer does mention that it's often avoided, it doesn't align with the ground truth that it should be avoided, implying a stronger recommendation against consumption."
+Is a Stem an anatomical part of a pumpkin?,No,Yes.,False
+"When cutting a pumpkin, what tool should be used?",Knife,A knife.,True
+"When peeling a pumpkin, what tool should be used?",Knife,A sharp paring knife.,True
+Is a Core an anatomical part of a strawberry?,No,"No, a core is not typically considered an anatomical part of a strawberry. Strawberries do not have a core like some other fruits, such as apples. The context provided suggests hollowing out the center of a strawberry to create a cavity, but this is not a natural anatomical structure.",True
+Is a Shell an anatomical part of a strawberry?,No,No.,True
+Is a Peel an anatomical part of a strawberry?,No,"No, a peel is typically associated with citrus fruits, not strawberries. Strawberries have an outer skin or hull that is usually removed before eating, but it's not referred to as a peel.",True
+Is a Stem an anatomical part of a strawberry?,Yes,Yes.,True
+"What is the edibility of a strawberry's Stem - can it be eaten, should it be avoided or must it be avoided?",ShouldBeAvoided,Must be avoided.,"False 
+
+The LLM answer (""Must be avoided"") does not align with the ground truth (""ShouldBeAvoided""). While both answers suggest that the stem should not be eaten, the ground truth uses ""should"" which implies a recommendation, whereas the LLM answer uses ""must"" which implies a stronger requirement."
+"When cutting a strawberry, what tool should be used?",Knife,A knife.,True
+Is a Core an anatomical part of a squash?,No,"No, a core is not typically considered an anatomical part of a squash. The seeds and stringy pulp are usually removed from the center of the squash, but it's not referred to as a core.",True
+Is a Shell an anatomical part of a squash?,No,"No, a shell is not typically considered an anatomical part of a squash. Squash typically have a rind or skin, but not a shell.",True
+Is a Peel an anatomical part of a squash?,Yes,Yes.,True
+"What is the edibility of a squash's Peel - can it be eaten, should it be avoided or must it be avoided?",ShouldBeAvoided,"The edibility of a squash's peel is that it ""can be eaten"" but is often avoided or removed for texture and taste preferences, as shown in the provided context where it is peeled in one of the recipes.","False 
+
+The LLM answer states that the peel ""can be eaten"", which contradicts the ground truth that it ""should be avoided"". Although the LLM answer mentions that it is often avoided or removed, the primary statement about edibility does not align with the ground truth."
+Is a Stem an anatomical part of a squash?,No,Yes.,False
+"When cutting a squash, what tool should be used?",Knife,"A cutting tool, such as a knife, should be used to cut the squash.",True
+"When peeling a squash, what tool should be used?",Knife,A peeler.,"False 
+
+Although a peeler can be used for some types of squash, the ground truth answer is a knife, which is more universally applicable for peeling various types of squash."
+Is a Core an anatomical part of a tomato?,No,"No, a core is not typically considered an anatomical part of a tomato. Tomatoes are usually described as having skin, flesh, and seeds, but not a core. The context provided does not mention a core either, instead referring to the pulp, seeds, and skins of tomatoes.",True
+Is a Shell an anatomical part of a tomato?,No,"No, a shell is not an anatomical part of a tomato. In the context, ""tomato shells"" refer to the hollowed-out tomato skins after the pulp has been removed.",True
+Is a Peel an anatomical part of a tomato?,Yes,"No, a peel is not an anatomical part of a tomato, but rather the skin that covers the outside of the fruit.","False 
+
+Although the LLM's answer attempts to provide additional information, it contradicts the ground truth. The ground truth states that a peel is an anatomical part of a tomato, while the LLM's answer denies this. The LLM's answer is technically correct in its description of the peel as the skin covering the outside of the fruit, but it should have acknowledged that the peel is indeed an anatomical part of the tomato."
+"What is the edibility of a tomato's Peel - can it be eaten, should it be avoided or must it be avoided?",Edible,"The edibility of a tomato's peel is that it can be eaten, but it's often removed for texture and taste preferences, as shown in the context where tomato skins are removed in two different recipes.","True 
+
+The LLM answer aligns with the ground truth that a tomato's peel is edible, even though it mentions that it's often removed for texture and taste preferences."
+Is a Stem an anatomical part of a tomato?,Yes,Yes.,True
+"What is the edibility of a tomato's Stem - can it be eaten, should it be avoided or must it be avoided?",ShouldBeAvoided,Must be avoided.,"False 
+
+The LLM answer (""Must be avoided"") does not align with the ground truth (""ShouldBeAvoided""). While both answers suggest that the stem should not be eaten, the ground truth uses ""should"" which implies a recommendation, whereas the LLM answer uses ""must"" which implies a stronger requirement."
+"When cutting a tomato, what tool should be used?",Knife,A sharp knife.,True
+"When quartering a specific fruit or vegetable, where should the knife be placed - in the middle or at the end of the object?",Middle,In the middle.,True
+"When quartering a specific fruit or vegetable, what other cutting task - if any - should be executed before?",Halving,Peeling,"False
+
+The ground truth answer is ""Halving"", which implies that halving should be executed before quartering. The LLM answer ""Peeling"" does not align with the ground truth, as peeling is a different cutting task that may or may not be related to quartering, and it's not necessarily executed before quartering."
+"When quartering a specific fruit or vegetable, how many cuts need to be made - exactly one or more than one?",exactly 1,More than one.,False
+"When quartering a specific fruit or vegetable, what is form of the input to perform the action on?",Halve,Whole,"To quarter a fruit or vegetable, you first need to halve it, and then halve the halves. Therefore, the form of the input to perform the action on is indeed ""Whole"" because you start with a whole fruit or vegetable before halving it to begin the quartering process.
+
+Result: True"
+"When quartering a specific fruit or vegetable, what is form and amount of the resulting pieces?",2 Quarter,"When quartering a fruit or vegetable, the resulting pieces are typically 4 in amount, and the form can vary depending on the item (e.g., eighths for apples, segments or supremes for oranges).","False 
+
+The LLM answer states that quartering results in 4 pieces, whereas the ground truth states that the resulting pieces are 2 quarters, implying that the item is divided into 4 parts, but the term ""quarter"" refers to each of the 4 parts. The LLM answer is incorrect in the context of the question."
+"When julienning a specific fruit or vegetable, where should the knife be placed - in the middle or at the end of the object?",End,At the end.,True
+"When julienning a specific fruit or vegetable, what other cutting task - if any - should be executed before?",Slicing,"Peeling. 
+
+When julienning a specific fruit or vegetable, peeling is often executed before, as julienning typically involves cutting the food into thin strips, and peeling can help remove unwanted skin.","False 
+
+The ground truth answer is ""Slicing"" but the LLM answer provided is ""Peeling"". Although peeling can be a step in food preparation, it is not the correct answer in this context, as the question specifically asks for the cutting task that should be executed before julienning, which is slicing. Julienning is typically done after slicing, as it involves cutting the sliced food into thin strips."
+"When julienning a specific fruit or vegetable, how many cuts need to be made - exactly one or more than one?",at least 1,More than one. Julienning typically involves making multiple parallel cuts to create thin strips.,"True 
+
+The LLM answer aligns with the ground truth, as ""more than one"" implies at least two cuts, which satisfies the condition of ""at least 1"" cut. Additionally, the explanation provided by the LLM about julienning involving multiple parallel cuts is accurate."
+"When julienning a specific fruit or vegetable, what is form of the input to perform the action on?",Slice,"The input to perform the action of julienning is typically a long, thin, solid piece of a fruit or vegetable, such as a carrot or a zucchini.","False 
+
+The LLM answer describes the result of julienning or a possible input for julienning in general terms, but it does not directly state that the form of the input to perform the action is a ""slice"" as the ground truth suggests. Julienne is a cutting technique where ingredients are cut into long, thin strips, but to perform julienning, you start with a whole or sliced piece of the fruit or vegetable, and the most accurate input form related to the action itself, as per the ground truth, is indeed ""slice"" since julienning often starts with slicing the item before cutting it into strips."
+"When julienning a specific fruit or vegetable, what is form and amount of the resulting pieces?",1 Slice and 1 Stripe,"When julienning a specific fruit or vegetable, the resulting pieces are long, thin strips, typically 1/8 inch thick and 1-2 inches long.","False 
+
+The LLM answer describes the resulting pieces as long, thin strips, which aligns with the concept of julienning, but it does not match the ground truth answer of ""1 Slice and 1 Stripe"". The LLM answer provides a more detailed description of the size of the strips, but it does not use the exact terminology specified in the ground truth."
+"When halving a specific fruit or vegetable, where should the knife be placed - in the middle or at the end of the object?",Middle,In the middle.,True
+"When halving a specific fruit or vegetable, how many cuts need to be made - exactly one or more than one?",exactly 1,Exactly one.,True
+"When halving a specific fruit or vegetable, what is form of the input to perform the action on?",Whole,Whole,True
+"When halving a specific fruit or vegetable, what is form and amount of the resulting pieces?",2 Halve,Halves.,True
+"When dicing a specific fruit or vegetable, where should the knife be placed - in the middle or at the end of the object?",End,In the middle.,False
+"When dicing a specific fruit or vegetable, what other cutting task - if any - should be executed before?",Julienning,Peeling.,"False 
+
+The ground truth answer is Julienning, which refers to cutting into thin strips, often after dicing. However, the LLM answer is Peeling, which is a different cutting task that may or may not be executed before dicing, depending on the specific fruit or vegetable. Therefore, the LLM answer does not align with the ground truth."
+"When dicing a specific fruit or vegetable, how many cuts need to be made - exactly one or more than one?",at least 1,More than one.,"True 
+
+The LLM answer ""More than one"" aligns with the ground truth ""at least 1"" since making more than one cut implies that at least one cut is made."
+"When dicing a specific fruit or vegetable, what is form of the input to perform the action on?",Stripe,Whole,"False 
+
+The ground truth answer is ""Stripe"" but the LLM answer is ""Whole"", which does not align with the ground truth. Therefore, the result is False."
+"When dicing a specific fruit or vegetable, what is form and amount of the resulting pieces?",1 Cube and 1 Stripe,"The form and amount of the resulting pieces when dicing a specific fruit or vegetable can vary, but common forms include:
+
+* Diced: small cubes (about 1/4 inch)
+* Chopped: small, irregular pieces
+* Sliced: thin, flat pieces
+* Grated: small, shredded pieces
+* Crushed: small, broken pieces
+* Finely chopped: very small, uniform pieces
+
+The amount can range from a few pieces to several cups, depending on the recipe and desired outcome.","False 
+
+The LLM answer does not align with the ground truth, which specifies that the form and amount of the resulting pieces when dicing a specific fruit or vegetable is 1 Cube and 1 Stripe. The LLM answer provides a more general and detailed explanation of various forms and amounts of pieces that can result from different cutting techniques, but it does not match the specific ground truth provided."
+"When cutting a specific fruit or vegetable, where should the knife be placed - in the middle or at the end of the object?",End,At the end.,True
+"When cutting a specific fruit or vegetable, how many cuts need to be made - exactly one or more than one?",exactly 1,More than one.,False
+"When cutting a specific fruit or vegetable, what is form of the input to perform the action on?",Whole or FoodPart,Fruit or vegetable,"False
+
+The LLM answer ""Fruit or vegetable"" does not align with the ground truth ""Whole or FoodPart"". The ground truth specifies that the input can be either a whole fruit/vegetable or a part of it, whereas the LLM answer only mentions the type of food item without considering the form of the input."
+"When cutting a specific fruit or vegetable, what is form and amount of the resulting pieces?",1 FoodPart and 1 Slice,"The form and amount of the resulting pieces when cutting a specific fruit or vegetable can vary depending on the method used. 
+
+- For oranges and grapefruits, the result is segments or supremes.
+- For other fruits and vegetables, the results include:
+  - Grated (apples, carrots)
+  - Chopped (apricots, bananas, cherries, coconut, dates, eggplant, figs, oranges, peaches, pears, prunes, raspberries)
+  - Mashed (bananas)
+  - Pitted (cherries, dates)
+  - Finely chopped (dates, figs)
+  - Ground (coconut, eggplant)
+  - Crushed and drained (pineapple) 
+  - Canned (peaches, pumpkin)","False 
+
+The LLM answer does not align with the ground truth. The ground truth states that the result of cutting a specific fruit or vegetable is 1 FoodPart and 1 Slice, whereas the LLM answer provides various forms and amounts of resulting pieces depending on the method used and the type of fruit or vegetable, but does not match the specific ground truth provided."
+"When slicing a specific fruit or vegetable, where should the knife be placed - in the middle or at the end of the object?",End,At the end.,True
+"When slicing a specific fruit or vegetable, how many cuts need to be made - exactly one or more than one?",at least 1,More than one.,"True 
+
+The LLM answer ""More than one"" aligns with the ground truth ""at least 1"" because making more than one cut implies that at least one cut is made. The ground truth does not specify an exact number, and the LLM answer is a possible scenario that satisfies the condition of making at least one cut."
+"When slicing a specific fruit or vegetable, what is form of the input to perform the action on?",Whole or FoodPart,"The input to perform the action on is a 3D object, specifically a fruit or vegetable, such as an orange or a potato.","False 
+
+The LLM answer does not align with the ground truth, which specifies that the input form is ""Whole or FoodPart"", whereas the LLM answer describes it as a ""3D object, specifically a fruit or vegetable"". Although the LLM answer is related to the context, it does not match the specific form mentioned in the ground truth."
+"When slicing a specific fruit or vegetable, what is form and amount of the resulting pieces?",1 FoodPart and 1 Slice,"The form of the resulting pieces is segments or supremes, and the amount is individual pieces, such as orange or grapefruit segments.","False 
+
+The LLM answer does not align with the ground truth. The ground truth specifies that the resulting pieces are 1 FoodPart and 1 Slice, whereas the LLM answer describes the form as segments or supremes and the amount as individual pieces, which is not equivalent to the ground truth."
+"When snipping a specific fruit or vegetable, where should the knife be placed - in the middle or at the end of the object?",End,At the end.,True
+"When snipping a specific fruit or vegetable, how many cuts need to be made - exactly one or more than one?",at least 1,More than one.,"False 
+
+The ground truth states ""at least 1"", which means one cut is sufficient, but the LLM answer states ""More than one"", which contradicts the ground truth."
+"When snipping a specific fruit or vegetable, what is form of the input to perform the action on?",Whole or FoodPart,Whole,True
+"When snipping a specific fruit or vegetable, what is form and amount of the resulting pieces?",1 FoodPart and 1 Slice,"The form and amount of the resulting pieces vary depending on the fruit or vegetable being cut. Examples include:
+
+- Chopped (e.g., apricots, bananas, oranges)
+- Grated (e.g., apples, carrots)
+- Mashed (e.g., bananas)
+- Finely chopped (e.g., dates, figs)
+- Crushed (e.g., pineapple)
+- Segments or supremes (e.g., oranges, grapefruit)
+- Sliced (e.g., oranges, grapefruit)","False 
+
+The LLM answer does not align with the ground truth, which states that the resulting pieces should be 1 FoodPart and 1 Slice. The LLM answer provides various forms and amounts of resulting pieces, depending on the fruit or vegetable being cut, but does not match the specific ground truth answer."
+"When slivering a specific fruit or vegetable, where should the knife be placed - in the middle or at the end of the object?",End,At the end.,True
+"When slivering a specific fruit or vegetable, how many cuts need to be made - exactly one or more than one?",at least 1,More than one.,"True 
+
+The LLM answer ""More than one"" aligns with the ground truth ""at least 1"" since making more than one cut implies that at least one cut is made."
+"When slivering a specific fruit or vegetable, what is form of the input to perform the action on?",Whole or FoodPart,Whole,True
+"When slivering a specific fruit or vegetable, what is form and amount of the resulting pieces?",1 FoodPart and 1 Slice,"The form and amount of the resulting pieces when slivering a specific fruit or vegetable can vary, but common forms include:
+
+- Sliced (e.g., oranges, 1/4 inch thick)
+- Chopped (e.g., apricots, apples)
+- Grated (e.g., carrots)
+- Mashed (e.g., bananas)
+- Finely chopped (e.g., dates, figs)
+- Crushed (e.g., pineapple)
+- Segments or supremes (e.g., oranges, grapefruit)
+
+The amount can range from a single segment to multiple cups (e.g., 1 cup of chopped peaches or prunes).","False 
+
+The LLM answer does not align with the ground truth, which states that the form and amount of the resulting pieces when slivering a specific fruit or vegetable is 1 FoodPart and 1 Slice. The LLM answer provides various forms and amounts, but does not match the specific ground truth answer."
+"When sawing a specific fruit or vegetable, where should the knife be placed - in the middle or at the end of the object?",End,At the end.,True
+"When sawing a specific fruit or vegetable, how many cuts need to be made - exactly one or more than one?",exactly 1,More than one.,False
+"When sawing a specific fruit or vegetable, what is form of the input to perform the action on?",Whole or FoodPart,Solid,"False 
+
+The LLM answer ""Solid"" does not align with the ground truth ""Whole or FoodPart"". The ground truth suggests that the input for sawing a specific fruit or vegetable can be either the whole fruit/vegetable or a part of it, whereas ""Solid"" is a physical state that does not directly relate to the form of the input for the action of sawing."
+"When sawing a specific fruit or vegetable, what is form and amount of the resulting pieces?",1 FoodPart and 1 Slice,"The form and amount of the resulting pieces vary depending on the fruit or vegetable being cut. Examples include:
+
+- Grated (e.g., Apples, Carrots)
+- Chopped (e.g., Apricots, Bananas, Cherries)
+- Mashed (e.g., Bananas)
+- Ground (e.g., Eggplant, Coconut)
+- Finely chopped (e.g., Dates, Figs)
+- Pitted (e.g., Cherries, Dates)
+- Crushed (e.g., Pineapple)
+- Segments or supremes (e.g., Oranges, Grapefruit)
+- Sliced (e.g., Oranges, Grapefruit)","False 
+
+The LLM answer does not align with the ground truth, which specifies that the resulting pieces should be 1 FoodPart and 1 Slice. The LLM answer provides a variety of forms and amounts of resulting pieces, but does not match the specific ground truth answer."
+"When paring a specific fruit or vegetable, where should the knife be placed - in the middle or at the end of the object?",End,At the end.,True
+"When paring a specific fruit or vegetable, how many cuts need to be made - exactly one or more than one?",exactly 1,More than one.,False
+"When paring a specific fruit or vegetable, what is form of the input to perform the action on?",Whole or FoodPart,"The input to perform the action on is typically a fruit or vegetable in its whole or partially prepared form (e.g. an orange, a strawberry, etc.).","True 
+
+The LLM answer aligns with the ground truth, as it mentions the input can be in its ""whole"" form, which matches the ""Whole"" in the ground truth, and also implies a ""partially prepared form"" which can be interpreted as ""FoodPart""."
+"When paring a specific fruit or vegetable, what is form and amount of the resulting pieces?",1 FoodPart and 1 Slice,Segments or supremes.,"False 
+
+The LLM answer ""Segments or supremes"" does not align with the ground truth ""1 FoodPart and 1 Slice"". While ""segments"" could be considered a type of food part, ""supremes"" is a specific culinary term that refers to a particular way of cutting citrus fruits, and it does not directly correspond to ""1 FoodPart and 1 Slice"". Therefore, the LLM answer does not accurately match the ground truth."
+"When carving a specific fruit or vegetable, where should the knife be placed - in the middle or at the end of the object?",End,At the end.,True
+"When carving a specific fruit or vegetable, how many cuts need to be made - exactly one or more than one?",exactly 1,More than one.,False
+"When carving a specific fruit or vegetable, what is form of the input to perform the action on?",Whole or FoodPart,Fruit,"False
+
+The LLM answer ""Fruit"" is too specific and does not fully align with the ground truth ""Whole or FoodPart"", which includes a broader range of possibilities. The ground truth suggests that the input can be either a whole fruit/vegetable or a part of it, whereas the LLM answer only considers the fruit as a whole."
+"When carving a specific fruit or vegetable, what is form and amount of the resulting pieces?",1 FoodPart and 1 Slice,"The form of the resulting pieces is chunks or segments (eighths for apples, supremes for oranges and grapefruit), and the amount is 1 1/2 inch chunks for apples.","False 
+
+The LLM answer does not align with the ground truth. The ground truth states that the resulting pieces are 1 FoodPart and 1 Slice, whereas the LLM answer describes the form as chunks or segments and specifies sizes for apples, which does not match the ground truth."
+"When mincing a specific fruit or vegetable, where should the knife be placed - in the middle or at the end of the object?",End,At the end.,True
+"When mincing a specific fruit or vegetable, what other cutting task - if any - should be executed before?",Julienning,Peeling.,"False 
+
+The ground truth answer is Julienning, which refers to cutting into thin strips, often after dicing or mincing has been done to create uniform strips. However, the LLM answer provided is Peeling, which is a different cutting task that involves removing the outer layer of a fruit or vegetable. While peeling might be done before mincing for some items, it's not the specific task that directly precedes mincing in the context of preparing ingredients for cooking, especially when considering the sequence of operations like peeling, chopping, dicing, and then possibly julienning for specific recipes."
+"When mincing a specific fruit or vegetable, how many cuts need to be made - exactly one or more than one?",at least 1,More than one.,"True 
+
+The LLM answer ""More than one"" aligns with the ground truth ""at least 1"" since making more than one cut implies that at least one cut is made."
+"When mincing a specific fruit or vegetable, what is form of the input to perform the action on?",Stripe,Whole,"False 
+
+The ground truth answer is ""Stripe"" but the LLM answer is ""Whole"", which does not align with the ground truth. Therefore, the result is False."
+"When mincing a specific fruit or vegetable, what is form and amount of the resulting pieces?",1 Cube and 1 Stripe,The resulting pieces are finely chopped.,"False 
+
+The LLM answer does not match the ground truth, which specifies that the resulting pieces should be 1 cube and 1 stripe, indicating a specific form and amount. The LLM answer describes the pieces as ""finely chopped"", which is a more general description and does not match the specific form and amount given in the ground truth."
+"When cubing a specific fruit or vegetable, where should the knife be placed - in the middle or at the end of the object?",End,In the middle.,False
+"When cubing a specific fruit or vegetable, what other cutting task - if any - should be executed before?",Julienning,Peeling.,"False 
+
+The ground truth answer is ""Julienning"", which refers to cutting into thin strips, but in the context of cubing, it's more likely that the correct answer is ""dicing"" or another cutting task that precedes cubing. However, ""Julienning"" is the provided ground truth. 
+
+The LLM answer ""Peeling"" is a different cutting task that may or may not be executed before cubing, depending on the specific fruit or vegetable and personal preference. It is not the same as the ground truth answer ""Julienning"". Therefore, the result is False."
+"When cubing a specific fruit or vegetable, how many cuts need to be made - exactly one or more than one?",at least 1,More than one.,True
+"When cubing a specific fruit or vegetable, what is form of the input to perform the action on?",Stripe,Whole,"False 
+
+The ground truth answer is ""Stripe"" but the LLM answer is ""Whole"", which does not align with the ground truth. Therefore, the result is False."
+"When cubing a specific fruit or vegetable, what is form and amount of the resulting pieces?",1 Cube and 1 Stripe,The resulting pieces are small cubes.,"False 
+
+The LLM answer does not match the ground truth, which specifies that the resulting pieces should be 1 cube and 1 stripe, but the LLM answer only mentions small cubes."
+"When chopping a specific fruit or vegetable, where should the knife be placed - in the middle or at the end of the object?",End,At the end.,True
+"When chopping a specific fruit or vegetable, what other cutting task - if any - should be executed before?",Julienning,Chopping the onions.,"False 
+
+The ground truth answer is ""Julienning"", which refers to cutting into thin strips, often done before chopping to ensure uniform pieces. The LLM answer ""Chopping the onions"" is unrelated to the task of preparing a specific fruit or vegetable for chopping and does not align with the ground truth."
+"When chopping a specific fruit or vegetable, how many cuts need to be made - exactly one or more than one?",at least 1,More than one.,"True 
+
+The LLM answer ""More than one"" aligns with the ground truth ""at least 1"" because making more than one cut implies that at least one cut is made. The ground truth does not specify that only one cut can be made, so both ""exactly one"" and ""more than one"" are compatible with ""at least 1""."
+"When chopping a specific fruit or vegetable, what is form of the input to perform the action on?",Stripe,Solid,False
+"When chopping a specific fruit or vegetable, what is form and amount of the resulting pieces?",1 Cube and 1 Stripe,"The form and amount of the resulting pieces vary depending on the fruit or vegetable being chopped. Examples include:
+- Chopped (e.g., apricots, apples, peaches)
+- Finely chopped (e.g., dates, figs)
+- Diced (e.g., celery)
+- Grated (e.g., carrots, apples)
+- Crushed (e.g., pineapple)
+- Mashed (e.g., bananas)
+- Ground (e.g., eggplant, coconut)
+- Pitted (e.g., cherries, dates)
+- Seeded (e.g., peppers)","False 
+
+The LLM answer does not align with the ground truth, which specifies that the resulting pieces should be ""1 Cube and 1 Stripe"". The LLM answer provides various examples of chopped forms, but does not match the specific ground truth."
+"When dividing a specific fruit or vegetable, where should the knife be placed - in the middle or at the end of the object?",Middle,"In the middle or at an end, depending on the object and desired outcome, but often at the end to create a stable base.","False 
+
+The LLM answer does not align with the ground truth, which states the knife should be placed in the middle. The LLM answer provides a more nuanced response that includes placing the knife at the end, which is not the ground truth answer."
+"When dividing a specific fruit or vegetable, how many cuts need to be made - exactly one or more than one?",exactly 1,More than one.,False
+"When dividing a specific fruit or vegetable, what is form of the input to perform the action on?",Whole,Whole,True
+"When dividing a specific fruit or vegetable, what is form and amount of the resulting pieces?",2 Halve,"The form and amount of the resulting pieces can vary depending on the fruit or vegetable being divided. Examples include:
+
+- Halves (e.g., tomato halves)
+- Segments or supremes (e.g., orange or grapefruit segments)
+- Slices (e.g., avocado slices)
+- Wedges (e.g., lettuce wedges)","False 
+
+The LLM answer does not align with the ground truth, which specifically states ""2 Halve"". The LLM answer provides a more general and varied response, listing different forms and amounts of resulting pieces for various fruits and vegetables, rather than confirming the specific outcome of ""2 Halve""."
