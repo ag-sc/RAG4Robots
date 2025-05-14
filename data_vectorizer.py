@@ -40,14 +40,19 @@ def load_chunks(file: str) -> List[str]:
     return chunks
 
 
-def get_context_chunks(file_type: str, question: str, k=3) -> List[str]:
+def get_db_file_name(file_type: str) -> str:
     file_map = {
-        'recipes': '5000recipes_cs500_co50',
-        'wikihow': '5000wikihow_cs500_co50',
-        'tutorials': 'tutorials_cs500_co50'
+        'recipes': 'all_recipes_cs500_co50',
+        'wikihow': 'all_wikihow_cs500_co50',
+        'tutorials': 'tutorials_cs500_co50',
+        'combined': 'all_recwhowtut_cs500_co50'
     }
-    index = load_vector_db(file_map[file_type])
-    chunks = load_chunks(file_map[file_type])
+    return file_map[file_type]
+
+
+def get_context_chunks(file_name: str, question: str, k=3) -> List[str]:
+    index = load_vector_db(file_name)
+    chunks = load_chunks(file_name)
     quest_embed = encoder_model.encode(question)
     _vector = np.array([quest_embed])
     faiss.normalize_L2(_vector)

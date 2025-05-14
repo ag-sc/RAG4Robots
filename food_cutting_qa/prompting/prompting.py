@@ -7,7 +7,7 @@ from tqdm import tqdm
 from food_cutting_qa.prompting.gemma_prompter import GemmaPrompter
 from food_cutting_qa.prompting.llama_prompter import LlamaPrompter
 from food_cutting_qa.prompting.prompter import Prompter
-from ...data_vectorizer import get_context_chunks
+from ...data_vectorizer import get_context_chunks, get_db_file_name
 
 
 def read_questions() -> List[str]:
@@ -27,13 +27,14 @@ def prompt_models(questions: List[str], models: List[Prompter], dbs: List[str], 
     for prompter in tqdm(models, "Prompting all models..."):
         for db in tqdm(dbs, "...using all databases..."):
             prompt_res = []
+            db_name = get_db_file_name(db)
             for q in tqdm(questions, "...for all questions"):
-                context = get_context_chunks(db, q, context_amount)
+                context = get_context_chunks(db_name, q, context_amount)
                 user_msg = f'Question: {q}\nContext: {context}\nAnswer:'
                 res = prompter.prompt_model(system_msg, user_msg)
                 res = res.replace("\n", " ")
                 prompt_res.append((q, res, context))
-            with open(f"{result_path}/{prompter.model_name.lower()}_{db}.csv", "w", newline="",
+            with open(f"{result_path}/{prompter.model_name.lower()}_{db_name}.csv", "w", newline="",
                       encoding="utf-8") as file:
                 writer = csv.writer(file)
                 writer.writerow(["question", "model_answer", "context"])
@@ -42,6 +43,6 @@ def prompt_models(questions: List[str], models: List[Prompter], dbs: List[str], 
 
 if __name__ == "__main__":
     prompters = [LlamaPrompter(), GemmaPrompter()]
-    databases = ['recipes', 'wikihow', 'tutorials']
+    databases = ['recipes', 'wikihow', 'tutorials', 'combined']
     questions = read_questions()
     prompt_models(questions, prompters, databases)
