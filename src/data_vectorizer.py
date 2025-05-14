@@ -6,7 +6,7 @@ import faiss
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
-base_path = "vector_db/"
+base_path = os.path.join(os.path.dirname(__file__), "..", "vector_db/")
 file_end = ".faiss"
 encoder_model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
 
