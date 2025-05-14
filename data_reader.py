@@ -62,6 +62,7 @@ def read_tutorial_videos() -> List[str]:
 
 
 def chunk_text_documents(texts: List[str], chunk_size=500, chunk_overlap=50) -> List[str]:
+    texts = [str(t) for t in texts if isinstance(t, str) or t is not None]
     chunker = RecursiveCharacterTextSplitter(
         chunk_size=chunk_size,
         chunk_overlap=chunk_overlap,
