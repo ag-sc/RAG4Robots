@@ -7,7 +7,7 @@ from tqdm import tqdm
 from food_cutting_qa.prompting.gemma_prompter import GemmaPrompter
 from food_cutting_qa.prompting.llama_prompter import LlamaPrompter
 from food_cutting_qa.prompting.prompter import Prompter
-from ...data_vectorizer import get_context_chunks, get_db_file_name
+from src.data_vectorizer import get_context_chunks, get_db_file_name
 
 
 def read_questions() -> List[str]:
