@@ -21,8 +21,9 @@ def create_new_from_file(res_type: ResourceType, model: SentenceTransformer) -> 
         all_chunks.append(chunk)
         all_vectors.append(vectors)
 
-    df_vectors = pd.DataFrame(all_vectors)
-    df_vectors['text'] = all_chunks
+    dim_cols = [f'dim_{i}' for i in range(len(all_vectors[0]))]
+    df_vectors = pd.DataFrame(all_vectors, columns=dim_cols)
+    df_vectors.insert(0, 'text', all_chunks)
     return df_vectors
 
 
