@@ -24,11 +24,12 @@ class RagDBManager:
 
     @staticmethod
     def get_db_file_path(db_type: ResourceType) -> str:
+        file_ending = 'csv'
         base_path = path.join(path.dirname(__file__), "..", "..", "vector_dbs/")
         file_map = {
-            ResourceType.RECIPES: 'recipes1m+',
-            ResourceType.WIKIHOW: 'wikihow',
-            ResourceType.CUTTING_TUTORIALS: 'cutting_tutorials'
+            ResourceType.RECIPES: f'recipes1m+.{file_ending}',
+            ResourceType.WIKIHOW: f'wikihow.{file_ending}',
+            ResourceType.CUTTING_TUTORIALS: f'cutting_tutorials.{file_ending}'
         }
         return path.join(base_path, file_map[db_type])
 
