@@ -174,8 +174,4 @@ cython_debug/
 .pypirc
 
 # Concrete data files
-/data/recipes/*
-/data/wikihow/*
-
-# Food Cutting evaluation files
-/food_cutting_qa/prompting/credentials.json
+/data/*
