@@ -4,8 +4,19 @@ import random
 import tarfile
 from typing import List
 
-from langchain.text_splitter import RecursiveCharacterTextSplitter
 from tqdm import tqdm
+
+from src.enums import ResourceType
+
+
+def get_data_from_resource(resource: ResourceType) -> List[str]:
+    if resource == ResourceType.RECIPES:
+        return read_recipe_data()
+    if resource == ResourceType.WIKIHOW:
+        return read_wikihow_articles()
+    if resource == ResourceType.CUTTING_TUTORIALS:
+        return read_tutorial_videos()
+    return []
 
 
 def read_recipe_data(max_amount=-1) -> List[str]:
@@ -59,15 +70,3 @@ def read_tutorial_videos() -> List[str]:
             with open(os.path.join(folder, filename), "r", encoding="utf-8") as file:
                 documents.append(file.read())
     return documents
-
-
-def chunk_text_documents(texts: List[str], chunk_size=500, chunk_overlap=50) -> List[str]:
-    texts = [str(t) for t in texts if isinstance(t, str) or t is not None]
-    chunker = RecursiveCharacterTextSplitter(
-        chunk_size=chunk_size,
-        chunk_overlap=chunk_overlap,
-        length_function=len
-    )
-    chunks = chunker.create_documents(texts)
-    chunk_texts = [doc.page_content for doc in tqdm(chunks, 'Creating chunks')]
-    return chunk_texts
