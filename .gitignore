@@ -175,3 +175,6 @@ cython_debug/
 
 # Concrete data files
 /data/*
+
+# Concrete vector databases
+/vector_dbs/*
