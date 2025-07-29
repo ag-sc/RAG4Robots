@@ -20,7 +20,7 @@ def create_new_from_file(res_type: ResourceType, model: SentenceTransformer, out
     if len(text_docs) == 0:
         return
 
-    chunks = chunk_text_documents(text_docs)
+    chunks = chunk_text_documents(text_docs) if res_type.needs_chunking else text_docs
     dim = model.get_sentence_embedding_dimension()
     dim_cols = [f'dim_{i}' for i in range(dim)]
     for batch in tqdm(batch_iterator(chunks, 5), 'Embedding the chunks'):
