@@ -23,7 +23,7 @@ def create_new_from_file(res_type: ResourceType, model: SentenceTransformer, out
     chunks = chunk_text_documents(text_docs) if res_type.needs_chunking else text_docs
     dim = model.get_sentence_embedding_dimension()
     dim_cols = [f'dim_{i}' for i in range(dim)]
-    for batch in tqdm(batch_iterator(chunks, 5), 'Embedding the chunks'):
+    for batch in tqdm(batch_iterator(chunks), 'Embedding the chunks'):
         vectors = model.encode(batch)
         df_batch = pd.DataFrame(vectors, columns=dim_cols)
         df_batch.insert(0, 'text', batch)
