@@ -1,9 +1,11 @@
 import json
 import os
 import random
+import re
 import tarfile
 from typing import List
 
+import pandas as pd
 from tqdm import tqdm
 
 from src.enums import ResourceType
@@ -16,6 +18,8 @@ def get_data_from_resource(resource: ResourceType) -> List[str]:
         return read_wikihow_articles()
     if resource == ResourceType.CUTTING_TUTORIALS:
         return read_tutorial_videos()
+    if resource == ResourceType.CSKG_LOC:
+        return read_object_locations_from_cskg_data()
     return []
 
 
@@ -70,3 +74,16 @@ def read_tutorial_videos() -> List[str]:
             with open(os.path.join(folder, filename), "r", encoding="utf-8") as file:
                 documents.append(file.read())
     return documents
+
+
+def read_object_locations_from_cskg_data() -> List[str]:
+    data = pd.read_csv("data/cskg/cskg.tsv", delimiter='\t', on_bad_lines='skip')
+    filtered = data[data['relation;label'] == 'at location']
+    obj_loc_tuples = []
+
+    for index, row in tqdm(filtered.iterrows(), 'Collecting data from the CSKG'):
+        obj = re.sub(r'^\d+', '', row['node1;label'])
+        loc = re.sub(r'^\d+', '', row['node2;label'])
+        obj_loc_tuples.append(f'{obj.lower()} is found at/in {loc.lower()}')
+
+    return obj_loc_tuples
