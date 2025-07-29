@@ -16,9 +16,18 @@ class RagDBManager:
         self._database_path = Path(path.join(path.dirname(__file__), "..", "..", "vector_dbs/", db_type.file_name))
         self._embedding_model = SentenceTransformer(embed_mod)
 
-        if not self._database_path.is_file():
+        first_file_path = self._database_path.with_name(f"{self._database_path.stem}_0{self._database_path.suffix}")
+        if not first_file_path.is_file():
             vectorizer.create_new_from_file(self._database_type, self._embedding_model, self._database_path)
-        self._database = pd.read_csv(self._database_path)
+        self._database = self.load_split_embeddings()
+
+    def load_split_embeddings(self) -> pd.DataFrame:
+        pattern = f"{self._database_path.stem}_*.csv"
+        files = sorted(self._database_path.parent.glob(pattern))
+        if not files:
+            raise FileNotFoundError(f"No split CSV files found for pattern: {pattern}")
+        df_list = [pd.read_csv(file) for file in files]
+        return pd.concat(df_list, ignore_index=True)
 
     def query_current_db(self, query: str) -> str:
         pass
