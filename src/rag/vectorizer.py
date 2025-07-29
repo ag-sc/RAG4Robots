@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import List
+from typing import List, Generator
 
 import pandas as pd
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -10,22 +10,24 @@ from src.enums import ResourceType
 from src.rag.io_handler import get_data_from_resource
 
 
+def batch_iterator(items: List[str], batch_size=256) -> Generator[List[str], None, None]:
+    for i in range(0, len(items), batch_size):
+        yield items[i:i + batch_size]
+
+
 def create_new_from_file(res_type: ResourceType, model: SentenceTransformer, out_path: Path):
     text_docs = get_data_from_resource(res_type)
     if len(text_docs) == 0:
         return
 
-    all_chunks = []
-    all_vectors = []
-    for chunk in tqdm(chunk_text_documents(text_docs), 'Embedding the chunks'):
-        vectors = model.encode(chunk)
-        all_chunks.append(chunk)
-        all_vectors.append(vectors)
-
-    dim_cols = [f'dim_{i}' for i in range(len(all_vectors[0]))]
-    df_vectors = pd.DataFrame(all_vectors, columns=dim_cols)
-    df_vectors.insert(0, 'text', all_chunks)
-    df_vectors.to_csv(out_path, index=False)
+    chunks = chunk_text_documents(text_docs)
+    dim = model.get_sentence_embedding_dimension()
+    dim_cols = [f'dim_{i}' for i in range(dim)]
+    for batch in tqdm(batch_iterator(chunks, 5), 'Embedding the chunks'):
+        vectors = model.encode(batch)
+        df_batch = pd.DataFrame(vectors, columns=dim_cols)
+        df_batch.insert(0, 'text', batch)
+        df_batch.to_csv(out_path, mode='a', index=False, header=not out_path.is_file())
 
 
 def chunk_text_documents(texts: List[str], chunk_size=500, chunk_overlap=50) -> List[str]:
