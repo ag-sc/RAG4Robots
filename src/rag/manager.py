@@ -13,23 +13,12 @@ class RagDBManager:
         self._database = pd.DataFrame()
         self._database_name = db_name
         self._database_type = db_type
-        self._database_path = Path(self.get_db_file_path(db_type))
+        self._database_path = Path(path.join(path.dirname(__file__), "..", "..", "vector_dbs/", db_type.file_name))
         self._embedding_model = SentenceTransformer(embed_mod)
 
         if not self._database_path.is_file():
             vectorizer.create_new_from_file(self._database_type, self._embedding_model, self._database_path)
         self._database = pd.read_csv(self._database_path)
-
-    @staticmethod
-    def get_db_file_path(db_type: ResourceType) -> str:
-        file_ending = 'csv'
-        base_path = path.join(path.dirname(__file__), "..", "..", "vector_dbs/")
-        file_map = {
-            ResourceType.RECIPES: f'recipes1m+.{file_ending}',
-            ResourceType.WIKIHOW: f'wikihow.{file_ending}',
-            ResourceType.CUTTING_TUTORIALS: f'cutting_tutorials.{file_ending}'
-        }
-        return path.join(base_path, file_map[db_type])
 
     def query_current_db(self, query: str) -> str:
         pass
