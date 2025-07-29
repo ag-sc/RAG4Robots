@@ -1,3 +1,4 @@
+from pathlib import Path
 from typing import List
 
 import pandas as pd
@@ -9,10 +10,10 @@ from src.enums import ResourceType
 from src.rag.io_handler import get_data_from_resource
 
 
-def create_new_from_file(res_type: ResourceType, model: SentenceTransformer) -> pd.DataFrame:
+def create_new_from_file(res_type: ResourceType, model: SentenceTransformer, out_path: Path):
     text_docs = get_data_from_resource(res_type)
     if len(text_docs) == 0:
-        return pd.DataFrame()
+        return
 
     all_chunks = []
     all_vectors = []
@@ -24,7 +25,7 @@ def create_new_from_file(res_type: ResourceType, model: SentenceTransformer) -> 
     dim_cols = [f'dim_{i}' for i in range(len(all_vectors[0]))]
     df_vectors = pd.DataFrame(all_vectors, columns=dim_cols)
     df_vectors.insert(0, 'text', all_chunks)
-    return df_vectors
+    df_vectors.to_csv(out_path, index=False)
 
 
 def chunk_text_documents(texts: List[str], chunk_size=500, chunk_overlap=50) -> List[str]:

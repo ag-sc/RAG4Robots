@@ -16,11 +16,9 @@ class RagDBManager:
         self._database_path = Path(self.get_db_file_path(db_type))
         self._embedding_model = SentenceTransformer(embed_mod)
 
-        if self._database_path.is_file():
-            self._database = pd.read_csv(self._database_path)
-        else:
-            self._database = vectorizer.create_new_from_file(self._database_type, self._embedding_model)
-            self._database.to_csv(self._database_path, index=False)
+        if not self._database_path.is_file():
+            vectorizer.create_new_from_file(self._database_type, self._embedding_model, self._database_path)
+        self._database = pd.read_csv(self._database_path)
 
     @staticmethod
     def get_db_file_path(db_type: ResourceType) -> str:
