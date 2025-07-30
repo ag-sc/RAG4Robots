@@ -1,7 +1,8 @@
+import gc
 import io
 import time
 from pathlib import Path
-from typing import List, Generator
+from typing import List, Generator, Iterable
 
 import pandas as pd
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -13,9 +14,16 @@ from src.rag.io_handler import get_data_from_resource
 
 MAX_FILE_SIZE = 90 * 1024 * 1024  # 90MB in bytes (circumvent GitHub file size limit of 100MB)
 
-def batch_iterator(items: List[str], batch_size=256) -> Generator[List[str], None, None]:
-    for i in range(0, len(items), batch_size):
-        yield items[i:i + batch_size]
+
+def batch_iterator(items: Iterable[str], batch_size=128) -> Generator[List[str], None, None]:
+    batch = []
+    for item in items:
+        batch.append(item)
+        if len(batch) == batch_size:
+            yield batch
+            batch = []
+    if batch:
+        yield batch
 
 
 def create_new_from_file(res_type: ResourceType, model: SentenceTransformer, out_path: Path):
@@ -35,7 +43,7 @@ def create_new_from_file(res_type: ResourceType, model: SentenceTransformer, out
     header_written = current_file.exists()
 
     for batch in tqdm(batch_iterator(chunks), 'Embedding the chunks'):
-        vectors = model.encode(batch)
+        vectors = model.encode(batch, batch_size=16, show_progress_bar=False)
         df_batch = pd.DataFrame(vectors, columns=dim_cols)
         df_batch.insert(0, 'text', batch)
 
@@ -66,8 +74,14 @@ def create_new_from_file(res_type: ResourceType, model: SentenceTransformer, out
         current_size += batch_size
         header_written = True
 
+        # Explicitly release memory used by these temporary variables
+        del vectors
+        del df_batch
+        del buffer
+        gc.collect()
 
-def chunk_text_documents(texts: List[str], chunk_size=500, chunk_overlap=50) -> List[str]:
+
+def chunk_text_documents(texts: List[str], chunk_size=500, chunk_overlap=50) -> Generator[str, None, None]:
     texts = [str(t) for t in texts if isinstance(t, str) or t is not None]
     chunker = RecursiveCharacterTextSplitter(
         chunk_size=chunk_size,
@@ -75,8 +89,8 @@ def chunk_text_documents(texts: List[str], chunk_size=500, chunk_overlap=50) -> 
         length_function=len
     )
     chunks = chunker.create_documents(texts)
-    chunk_texts = [doc.page_content for doc in tqdm(chunks, 'Creating chunks')]
-    return chunk_texts
+    for doc in tqdm(chunks, 'Creating chunks'):
+        yield doc.page_content
 
 # def get_context_chunks(file_name: str, question: str, k=3) -> List[str]:
 #    index = load_vector_db(file_name)
