@@ -1,4 +1,5 @@
 import io
+import time
 from pathlib import Path
 from typing import List, Generator
 
@@ -27,6 +28,8 @@ def create_new_from_file(res_type: ResourceType, model: SentenceTransformer, out
     dim_cols = [f'dim_{i}' for i in range(dim)]
 
     file_index = 0
+    max_retries = 5
+    retry_delay = 1.0
     current_file = out_path.with_name(f"{out_path.stem}_{file_index}{out_path.suffix}")
     current_size = current_file.stat().st_size if current_file.exists() else 0
     header_written = current_file.exists()
@@ -50,8 +53,15 @@ def create_new_from_file(res_type: ResourceType, model: SentenceTransformer, out
             current_size = 0
             header_written = False
 
-        with current_file.open('a', encoding='utf-8') as f:
-            f.write(buffer.getvalue())
+        for attempt in range(max_retries):
+            try:
+                with current_file.open('a', encoding='utf-8') as f:
+                    f.write(buffer.getvalue())
+                break
+            except BlockingIOError:
+                time.sleep(retry_delay)
+        else:
+            raise RuntimeError(f"Failed to write after {max_retries} retries with {retry_delay}s in between")
 
         current_size += batch_size
         header_written = True
