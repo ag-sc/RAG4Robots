@@ -81,25 +81,15 @@ def create_new_from_file(res_type: ResourceType, model: SentenceTransformer, out
         gc.collect()
 
 
-def chunk_text_documents(texts: List[str], chunk_size=500, chunk_overlap=50) -> Generator[str, None, None]:
+def chunk_text_documents(texts: List[str], chunk_size=500, chunk_overlap=0) -> Generator[str, None, None]:
     texts = [str(t) for t in texts if isinstance(t, str) or t is not None]
     chunker = RecursiveCharacterTextSplitter(
         chunk_size=chunk_size,
         chunk_overlap=chunk_overlap,
-        length_function=len
+        length_function=len,
+        keep_separator='end',
+        separators=["\n\n", "\n", ".", "!", "?", " ", ""]
     )
     chunks = chunker.create_documents(texts)
     for doc in tqdm(chunks, 'Creating chunks'):
         yield doc.page_content
-
-# def get_context_chunks(file_name: str, question: str, k=3) -> List[str]:
-#    index = load_vector_db(file_name)
-#    chunks = load_chunks(file_name)
-#    quest_embed = encoder_model.encode(question)
-#    _vector = np.array([quest_embed])
-#    faiss.normalize_L2(_vector)
-#    D, I = index.search(_vector, k=k)
-#    cont = []
-#    for i in I[0]:
-#        cont.append(chunks[i])
-#    return cont
