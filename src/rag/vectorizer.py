@@ -1,10 +1,9 @@
+import csv
 import gc
-import io
 import time
 from pathlib import Path
 from typing import List, Generator, Iterable
 
-import pandas as pd
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from sentence_transformers import SentenceTransformer
 from tqdm import tqdm
@@ -44,40 +43,39 @@ def create_new_from_file(res_type: ResourceType, model: SentenceTransformer, out
 
     for batch in tqdm(batch_iterator(chunks), 'Embedding the chunks'):
         vectors = model.encode(batch, batch_size=16, show_progress_bar=False)
-        df_batch = pd.DataFrame(vectors, columns=dim_cols)
-        df_batch.insert(0, 'text', batch)
-
-        # Estimate size of this batch in CSV format
-        buffer = io.StringIO()
-        df_batch.to_csv(buffer, index=False, header=not header_written)
-        batch_bytes = buffer.getvalue().encode('utf-8')
-        batch_size = len(batch_bytes)
-
-        # Check if this batch fits in the current file
-        if current_size + batch_size > MAX_FILE_SIZE:
-            # Start a new file
-            file_index += 1
-            current_file = out_path.with_name(f"{out_path.stem}_{file_index}{out_path.suffix}")
-            current_size = 0
-            header_written = False
-
         for attempt in range(max_retries):
             try:
-                with current_file.open('a', encoding='utf-8') as f:
-                    f.write(buffer.getvalue())
+                with current_file.open('a', encoding='utf-8', newline='') as f:
+                    writer = csv.writer(f)
+
+                    if not header_written:
+                        writer.writerow(['text'] + dim_cols)
+                        current_size += len(','.join(['text'] + dim_cols)) + 1  # Rough estimate
+                        header_written = True
+
+                    for text, vec in zip(batch, vectors):
+                        row = [text] + list(map(str, vec))
+                        row_data = ','.join(row) + '\n'
+                        row_size = len(row_data.encode('utf-8'))
+
+                        # Check size before writing
+                        if current_size + row_size > MAX_FILE_SIZE:
+                            file_index += 1
+                            current_file = out_path.with_name(f"{out_path.stem}_{file_index}{out_path.suffix}")
+                            current_size = 0
+                            header_written = False
+                            break
+
+                        writer.writerow(row)
+                        current_size += row_size
                 break
             except BlockingIOError:
                 time.sleep(retry_delay)
         else:
             raise RuntimeError(f"Failed to write after {max_retries} retries with {retry_delay}s in between")
 
-        current_size += batch_size
-        header_written = True
-
         # Explicitly release memory used by these temporary variables
         del vectors
-        del df_batch
-        del buffer
         gc.collect()
 
 
