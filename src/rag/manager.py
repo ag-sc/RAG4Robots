@@ -1,11 +1,14 @@
 from os import path
 from pathlib import Path
+from typing import List, Any
 
+import numpy as np
 import pandas as pd
 from sentence_transformers import SentenceTransformer
 
 from src.enums import ResourceType
 from src.rag import vectorizer
+from src.utils.sim_calc import calculate_similarity
 
 
 class RagDBManager:
@@ -29,8 +32,15 @@ class RagDBManager:
         df_list = [pd.read_csv(file) for file in files]
         return pd.concat(df_list, ignore_index=True)
 
-    def query_current_db(self, query: str) -> str:
-        pass
+    def query_current_db(self, query: str, hits_to_return=3) -> List[Any]:
+        embed_query = self._embedding_model.encode(query)
+        similarities = []
+        for _, row in self._database.iterrows():
+            chunk = row['text']
+            chunk_embedding = row.iloc[1:].to_numpy().astype(np.float32)
+            sim = calculate_similarity(embed_query, chunk_embedding)
+            similarities.append((chunk, sim))
+        return sorted(similarities, key=lambda x: x[1], reverse=True)[:hits_to_return]
 
     def get_current_db(self) -> str:
         return self._database_name
