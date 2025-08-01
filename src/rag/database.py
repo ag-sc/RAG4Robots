@@ -6,15 +6,15 @@ import numpy as np
 import pandas as pd
 from sentence_transformers import SentenceTransformer
 
-from src.utils.enums import ResourceType
 from src.rag import vectorizer
+from src.utils.enums import ResourceType
 from src.utils.sim_calc import calculate_similarity
 
 
 class RAGDatabase:
-    def __init__(self, db_name: str, db_type: ResourceType, embed_mod='sentence-transformers/all-MiniLM-L6-v2') -> None:
+    def __init__(self, db_type: ResourceType, embed_mod='sentence-transformers/all-MiniLM-L6-v2') -> None:
         self._database = pd.DataFrame()
-        self._database_name = db_name
+        self._database_name = db_type.type
         self._database_type = db_type
         self._database_path = Path(path.join(path.dirname(__file__), "..", "..", "vector_dbs/", db_type.file_name))
         self._embedding_model = SentenceTransformer(embed_mod)
@@ -23,6 +23,7 @@ class RAGDatabase:
         if not first_file_path.is_file():
             vectorizer.create_new_from_file(self._database_type, self._embedding_model, self._database_path)
         self._database = self.load_split_embeddings()
+        print(f"Created a RAG vector database for: {self._database_name} ({len(self._database)} entries)")
 
     def load_split_embeddings(self) -> pd.DataFrame:
         pattern = f"{self._database_path.stem}_*.csv"
