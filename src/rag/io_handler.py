@@ -8,7 +8,7 @@ from typing import List
 import pandas as pd
 from tqdm import tqdm
 
-from src.enums import ResourceType
+from src.utils.enums import ResourceType
 
 
 def get_data_from_resource(resource: ResourceType) -> List[str]:

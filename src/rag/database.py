@@ -6,12 +6,12 @@ import numpy as np
 import pandas as pd
 from sentence_transformers import SentenceTransformer
 
-from src.enums import ResourceType
+from src.utils.enums import ResourceType
 from src.rag import vectorizer
 from src.utils.sim_calc import calculate_similarity
 
 
-class RagDBManager:
+class RAGDatabase:
     def __init__(self, db_name: str, db_type: ResourceType, embed_mod='sentence-transformers/all-MiniLM-L6-v2') -> None:
         self._database = pd.DataFrame()
         self._database_name = db_name
