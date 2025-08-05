@@ -1,18 +1,19 @@
-from typing import List, Any
+from typing import List, Any, Tuple
 
 from src.rag.database import RAGDatabase
 from src.utils.enums import ResourceType
 
 
 class RAGManager:
-    def __init__(self, db_types: List[ResourceType], embed_mod='sentence-transformers/all-MiniLM-L6-v2') -> None:
+    def __init__(self, db_types: List[Tuple[ResourceType, float]],
+                 embed_mod='sentence-transformers/all-MiniLM-L6-v2') -> None:
         self._databases = []
         self._embedding_model = embed_mod
         for db in db_types:
-            self._databases.append(RAGDatabase(db, embed_mod))
+            self._databases.append(RAGDatabase(db[0], db[1], embed_mod))
 
-    def add_new_database(self, db_type: ResourceType):
-        self._databases.append(RAGDatabase(db_type, self._embedding_model))
+    def add_new_database(self, db_type: ResourceType, usage=1.0):
+        self._databases.append(RAGDatabase(db_type, usage, self._embedding_model))
 
     def get_databases(self) -> List[RAGDatabase]:
         return self._databases

@@ -12,26 +12,29 @@ from src.utils.sim_calc import calculate_similarity
 
 
 class RAGDatabase:
-    def __init__(self, db_type: ResourceType, embed_mod='sentence-transformers/all-MiniLM-L6-v2') -> None:
+    def __init__(self, db_type: ResourceType, data_usage=1.0,
+                 embed_mod='sentence-transformers/all-MiniLM-L6-v2') -> None:
         self._database = pd.DataFrame()
         self._database_name = db_type.type
         self._database_type = db_type
         self._database_path = Path(path.join(path.dirname(__file__), "..", "..", "vector_dbs/", db_type.file_name))
+        self._data_usage_percentage = data_usage
         self._embedding_model = SentenceTransformer(embed_mod)
 
         first_file_path = self._database_path.with_name(f"{self._database_path.stem}_0{self._database_path.suffix}")
         if not first_file_path.is_file():
             vectorizer.create_new_from_file(self._database_type, self._embedding_model, self._database_path)
-        self._database = self.load_split_embeddings()
-        print(f"Created a RAG vector database for: {self._database_name} ({len(self._database)} entries)")
+        self._database = self.load_split_embeddings(self._data_usage_percentage)
+        print(f"Created a RAG vector database for: {self._database_name} ({len(self._database)} entries at {self._data_usage_percentage * 100}% usage)")
 
-    def load_split_embeddings(self) -> pd.DataFrame:
+    def load_split_embeddings(self, usage=1.0) -> pd.DataFrame:
         pattern = f"{self._database_path.stem}_*.csv"
         files = sorted(self._database_path.parent.glob(pattern))
         if not files:
             raise FileNotFoundError(f"No split CSV files found for pattern: {pattern}")
         df_list = [pd.read_csv(file) for file in files]
-        return pd.concat(df_list, ignore_index=True)
+        data = pd.concat(df_list, ignore_index=True)
+        return data.sample(round(usage * len(data)))
 
     def query_current_db(self, query: str, hits_to_return=3) -> List[Any]:
         embed_query = self._embedding_model.encode(query)
