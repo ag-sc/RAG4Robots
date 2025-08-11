@@ -1,7 +1,7 @@
 from typing import List, Any, Tuple
 
-from src.rag.database import RAGDatabase
-from src.utils.enums import ResourceType
+from RAG4Robots.src.rag.database import RAGDatabase
+from RAG4Robots.src.utils.enums import ResourceType
 
 
 class RAGManager:

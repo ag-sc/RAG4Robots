@@ -8,8 +8,8 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from sentence_transformers import SentenceTransformer
 from tqdm import tqdm
 
-from src.utils.enums import ResourceType
-from src.rag.io_handler import get_data_from_resource
+from RAG4Robots.src.utils.enums import ResourceType
+from RAG4Robots.src.rag.io_handler import get_data_from_resource
 
 MAX_FILE_SIZE = 90 * 1024 * 1024  # 90MB in bytes (circumvent GitHub file size limit of 100MB)
 

@@ -6,9 +6,9 @@ import numpy as np
 import pandas as pd
 from sentence_transformers import SentenceTransformer
 
-from src.rag import vectorizer
-from src.utils.enums import ResourceType
-from src.utils.sim_calc import calculate_similarity
+from RAG4Robots.src.rag import vectorizer
+from RAG4Robots.src.utils.enums import ResourceType
+from RAG4Robots.src.utils.sim_calc import calculate_similarity
 
 
 class RAGDatabase:
