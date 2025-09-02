@@ -22,10 +22,13 @@ class RAGDatabase:
         self._embedding_model = SentenceTransformer(embed_mod)
 
         first_file_path = self._database_path.with_name(f"{self._database_path.stem}_0{self._database_path.suffix}")
-        if not first_file_path.is_file():
-            vectorizer.create_new_from_file(self._database_type, self._embedding_model, self._database_path)
-        self._database = self.load_split_embeddings(self._data_usage_percentage)
-        print(f"Created a RAG vector database for: {self._database_name} ({len(self._database)} entries at {self._data_usage_percentage * 100}% usage)")
+        if db_type == ResourceType.PLANS:
+            self._database = pd.DataFrame(data=None, columns=["text"] + [f"dim_{i}" for i in range(384)])
+        else:
+            if not first_file_path.is_file():
+                vectorizer.create_new_from_file(self._database_type, self._embedding_model, self._database_path)
+            self._database = self.load_split_embeddings(self._data_usage_percentage)
+            print(f"Created a RAG vector database for: {self._database_name} ({len(self._database)} entries at {self._data_usage_percentage * 100}% usage)")
 
     def load_split_embeddings(self, usage=1.0) -> pd.DataFrame:
         pattern = f"{self._database_path.stem}_*.csv"
@@ -37,6 +40,8 @@ class RAGDatabase:
         return data.sample(round(usage * len(data)))
 
     def query_current_db(self, query: str, hits_to_return=3) -> List[Any]:
+        if self._database.empty or len(self._database) < hits_to_return:
+            return []
         embed_query = self._embedding_model.encode(query)
         similarities = []
         for _, row in self._database.iterrows():
@@ -57,3 +62,9 @@ class RAGDatabase:
 
     def get_embedding_model(self) -> SentenceTransformer:
         return self._embedding_model
+
+    def get_db_as_df(self) -> pd.DataFrame:
+        return self._database
+
+    def replace_database(self, db: pd.DataFrame):
+        self._database = db

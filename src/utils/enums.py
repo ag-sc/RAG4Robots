@@ -7,6 +7,7 @@ class ResourceType(Enum):
     WIKIHOW = ("WikiHow", f'wikihow.{file_ending}', True)
     CUTTING_TUTORIALS = ("Cutting_Tutorials", f'cutting_tutorials.{file_ending}', True)
     CSKG_LOC = ("CSKG_Locations", f'cskg_loc.{file_ending}', False)
+    PLANS = ("Plans", f'plans.{file_ending}', False)
 
     def __init__(self, title: str, file: str, chunks: bool):
         self.type = title

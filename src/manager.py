@@ -3,10 +3,10 @@ from typing import List, Any, Tuple
 from RAG4Robots.src.rag.database import RAGDatabase
 from RAG4Robots.src.utils.enums import ResourceType
 
+EMBEDDING_MODEL = 'sentence-transformers/all-MiniLM-L6-v2'
 
 class RAGManager:
-    def __init__(self, db_types: List[Tuple[ResourceType, float]],
-                 embed_mod='sentence-transformers/all-MiniLM-L6-v2') -> None:
+    def __init__(self, db_types: List[Tuple[ResourceType, float]], embed_mod=EMBEDDING_MODEL) -> None:
         self._databases = []
         self._embedding_model = embed_mod
         for db in db_types:
